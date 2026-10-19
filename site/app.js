@@ -74,7 +74,7 @@ const proposals = [
 ];
 const canvas = $("#canvas"),
   ctx = canvas.getContext("2d"),
-  API = "/.netlify/functions/campaign";
+  API = "/api/campaign";
 const state = {
   frame: "chapa-2",
   photo: null,

@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve, extname, join } from "node:path";
 import { tmpdir } from "node:os";
 import { createHash } from "node:crypto";
-import { handle } from "../netlify/lib/service.mjs";
+import { handle } from "../lib/service.mjs";
 const root = resolve("site"),
   dbPath = join(
     tmpdir(),
@@ -50,7 +50,7 @@ const types = {
 };
 const server = createServer(async (req, res) => {
   try {
-    if (req.url.startsWith("/.netlify/functions/campaign")) {
+    if (req.url.startsWith("/api/campaign")) {
       const chunks = [];
       let size = 0;
       for await (const c of req) {

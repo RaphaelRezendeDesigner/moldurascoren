@@ -2,8 +2,9 @@ import { access } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 for (const file of [
   "site/app.js",
-  "netlify/functions/campaign.mjs",
-  "netlify/lib/service.mjs",
+  "api/campaign.js",
+  "lib/service.mjs",
+  "lib/vercel-store.mjs",
 ])
   execFileSync(process.execPath, ["--check", file], { stdio: "inherit" });
 for (const file of [
@@ -17,5 +18,5 @@ for (const file of [
 ])
   await access(file);
 console.log(
-  "Site e funções validados. Publicação: site/ + netlify/functions/.",
+  "Site e funções validados. Publicação: site/ + api/.",
 );

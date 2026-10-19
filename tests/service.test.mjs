@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
-import { handle } from "../netlify/lib/service.mjs";
+import { handle } from "../lib/service.mjs";
 function memory() {
   const data = new Map();
   return {
@@ -34,7 +34,7 @@ const payload = (extra = {}) => ({
   ...extra,
 });
 const request = (method = "GET", body, headers = {}) =>
-  new Request("https://example.netlify.app/.netlify/functions/campaign", {
+  new Request("https://example.vercel.app/api/campaign", {
     method,
     headers: { "Content-Type": "application/json", ...headers },
     body: body === undefined ? undefined : JSON.stringify(body),
