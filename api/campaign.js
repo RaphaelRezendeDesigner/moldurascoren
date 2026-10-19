@@ -3,10 +3,9 @@ import { createStore } from "../lib/vercel-store.mjs";
 
 export default {
   async fetch(request) {
-    if (
-      !process.env.BLOB_READ_WRITE_TOKEN &&
-      !(process.env.BLOB_STORE_ID && process.env.VERCEL_OIDC_TOKEN)
-    ) {
+    // In production, the SDK obtains OIDC from Vercel's request context.
+    // VERCEL_OIDC_TOKEN is not required as a runtime environment variable.
+    if (!process.env.BLOB_READ_WRITE_TOKEN && !process.env.BLOB_STORE_ID) {
       return Response.json(
         {
           error:
