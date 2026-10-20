@@ -1130,3 +1130,6 @@ dialog img {
     transition: none !important;
   }
 }
+
+.campaign-frame-info strong { display: block; font-size: 22px; line-height: 1.25; }
+.campaign-frame-info p { color: var(--muted); font-size: 13px; line-height: 1.6; margin: 10px 0 0; }

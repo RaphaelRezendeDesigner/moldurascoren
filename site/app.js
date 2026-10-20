@@ -212,16 +212,8 @@ function reset() {
   text("#zoom-value", "100%");
   invalidate();
 }
-function choose(frame) {
-  frame = "duas-chapas";
-  state.frame = frame;
-  saved.set("coren-frame", frame);
-  const d = data[frame];
-  document.querySelectorAll("[data-frame]").forEach((b) => {
-    const yes = b.dataset.frame === frame;
-    b.classList.toggle("selected", yes);
-    b.setAttribute("aria-pressed", yes);
-  });
+function showCampaign() {
+  const d = data["duas-chapas"];
   text("#selected-category", d.category.toUpperCase());
   text("#selected-title", d.headline);
   text("#selected-description", d.description);
@@ -263,9 +255,6 @@ $("#proposal-grid").replaceChildren(
     return a;
   }),
 );
-document
-  .querySelectorAll("[data-frame]")
-  .forEach((b) => b.addEventListener("click", () => choose(b.dataset.frame)));
 function imageLoad(url) {
   return new Promise((resolve, reject) => {
     const im = new Image();
@@ -587,16 +576,12 @@ async function refresh() {
   }
 }
 async function init() {
-  choose("duas-chapas");
-  await Promise.all(
-    ["duas-chapas"].map(async (frame) => {
-      try {
-        state.frames[frame] = await imageLoad("assets/moldura-chapas-2-e-1.png");
-      } catch {
-        status("A moldura não carregou. Atualize a página.", true);
-      }
-    }),
-  );
+  showCampaign();
+  try {
+    state.frames["duas-chapas"] = await imageLoad("assets/moldura-unica-azul-v2.png");
+  } catch {
+    status("A moldura não carregou. Atualize a página.", true);
+  }
   invalidate();
   void refresh();
 }
