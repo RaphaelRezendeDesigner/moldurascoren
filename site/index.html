@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#102e50" />
     <meta
       name="description"
-      content="Conheça as chapas 2 e 1 da campanha Avançar Mais e personalize sua foto de apoio com as molduras COREN-AM 2026."
+      content="Conheça as chapas 2 e 1 da campanha Avançar Mais e personalize sua foto de apoio com a moldura das chapas 2 e 1 · COREN-AM 2026."
     />
     <title>Sua foto, nosso movimento · COREN-AM 2026</title>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -33,7 +33,7 @@
           </p>
           <h1>Sua foto.<br />Um apoio que <em>aparece.</em></h1>
           <p class="hero-copy">
-            Conheça as chapas, escolha sua moldura e leve<br
+            Conheça as chapas, personalize sua foto e leve<br
               class="desktop-break"
             />
             esse movimento para o seu perfil.
@@ -60,45 +60,10 @@
         </div>
         <div class="studio">
           <div class="frame-column">
-            <p class="step"><b>01</b> ESCOLHA SUA MOLDURA</p>
-            <div
-              class="frame-options"
-              role="group"
-              aria-label="Molduras disponíveis"
-            >
-              <button
-                class="frame-option selected"
-                data-frame="chapa-2"
-                aria-pressed="true"
-              >
-                <span class="frame-number">2</span
-                ><span
-                  ><strong>Somos Chapa 2</strong
-                  ><small>Enfermeiros · Quadro I</small></span
-                ><span class="radio-dot"></span>
-              </button>
-              <button
-                class="frame-option"
-                data-frame="chapa-1"
-                aria-pressed="false"
-              >
-                <span class="frame-number">1</span
-                ><span
-                  ><strong>Eu sou Chapa 1</strong
-                  ><small>Técnicos e auxiliares · II e III</small></span
-                ><span class="radio-dot"></span>
-              </button>
-              <button
-                class="frame-option"
-                data-frame="duas-chapas"
-                aria-pressed="false"
-              >
-                <span class="frame-number both-number">2+1</span
-                ><span
-                  ><strong>As duas chapas</strong
-                  ><small>Nosso time completo</small></span
-                ><span class="radio-dot"></span>
-              </button>
+            <p class="step"><b>01</b> NOSSA MOLDURA</p>
+            <div class="frame-option selected">
+              <span class="frame-number both-number">2+1</span>
+              <span><strong>Chapa 2 + Chapa 1</strong><small>Avançar Mais · Quadros I, II e III</small></span>
             </div>
             <div class="selection-info" aria-live="polite">
               <span class="tiny" id="selected-category"></span>
@@ -107,7 +72,7 @@
               <a href="#conheca">Conhecer propostas <span>↗</span></a>
             </div>
             <p class="source-caption">
-              Molduras originais da campanha<br />Avançar Mais · COREN-AM 2026
+              Moldura oficial da campanha<br />Avançar Mais · COREN-AM 2026
             </p>
           </div>
           <div class="preview-column">
@@ -118,8 +83,8 @@
             <div class="fixed-editor">
               <canvas
                 id="canvas"
-                width="1000"
-                height="1000"
+                width="1080"
+                height="1080"
                 tabindex="0"
                 role="img"
                 aria-label="Prévia da sua foto com a moldura. Use as setas para mover a foto."
@@ -196,9 +161,9 @@
             </fieldset>
             <div class="download-summary">
               <span class="tiny">VOCÊ VAI BAIXAR</span
-              ><strong id="download-title">Somos Chapa 2</strong
-              ><span id="download-category">Enfermeiros · Quadro I</span
-              ><small>PNG de alta qualidade · 1000 × 1000 px</small>
+              ><strong id="download-title">Chapa 2 + Chapa 1</strong
+              ><span id="download-category">Enfermeiros, técnicos e auxiliares</span
+              ><small>PNG de alta qualidade · 1080 × 1080 px</small>
               <small id="selected-download-count">Carregando contador…</small>
             </div>
             <label class="wall-option"
@@ -246,7 +211,7 @@
         </div>
         <div class="about-detail">
           <div class="detail-heading">
-            <span id="about-number">2</span>
+            <span id="about-number">2+1</span>
             <div>
               <p class="tiny" id="about-category"></p>
               <h3 id="about-title"></h3>
@@ -255,7 +220,7 @@
           <p id="about-description"></p>
           <div class="proposal-grid" id="proposal-grid"></div>
           <details>
-            <summary>Quem faz parte da chapa <span>＋</span></summary>
+            <summary>Quem faz parte das chapas <span>＋</span></summary>
             <ul id="members"></ul>
           </details>
           <div id="pdf-links" class="pdf-links"></div>
@@ -342,7 +307,7 @@
       <p>
         Toque e segure a imagem para ver as opções de salvar no seu aparelho.
       </p>
-      <img id="save-image" alt="Sua foto pronta com a moldura escolhida" /><a
+      <img id="save-image" alt="Sua foto pronta com a moldura das chapas 2 e 1" /><a
         id="save-link"
         class="primary-button"
         download

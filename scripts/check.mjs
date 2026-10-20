@@ -10,9 +10,7 @@ for (const file of [
 for (const file of [
   "site/index.html",
   "site/style.css",
-  "site/assets/chapa-2.png",
-  "site/assets/chapa-1.png",
-  "site/assets/duas-chapas.png",
+  "site/assets/moldura-chapas-2-e-1.png",
   "site/assets/propostas-chapa-2.pdf",
   "site/assets/propostas-chapa-1.pdf",
 ])

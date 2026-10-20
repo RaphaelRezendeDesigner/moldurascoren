@@ -1,6 +1,6 @@
 # Publicar o site de molduras na Vercel
 
-Esta versão mantém as três molduras, os panfletos, o editor e os downloads. O contador e o mural foram adaptados para Vercel Functions + Vercel Blob privado. Não depende da conta Netlify.
+Esta versão usa apenas a nova moldura conjunta das chapas 2 e 1, os panfletos, o editor e os downloads. O contador e o mural foram adaptados para Vercel Functions + Vercel Blob privado. Não depende da conta Netlify.
 
 ## 1. Atualizar o GitHub
 
@@ -50,7 +50,7 @@ Referências: [criar e conectar Vercel Blob](https://vercel.com/docs/vercel-blob
 
 - Molduras originais das chapas 2, 1 e conjunta 2 + 1.
 - Informações e integrantes a partir dos panfletos, com links para os PDFs completos.
-- Área de edição fixa em 320 × 320 pixels CSS; exportação PNG de 1000 × 1000.
+- Área de edição fixa em 320 × 320 pixels CSS; exportação PNG de 1080 × 1080.
 - Arraste, gesto com dois dedos, zoom, botões e teclado para mover a foto.
 - Contador geral e por moldura, com identificação da imagem preparada para evitar duplicação nas tentativas repetidas.
 - Mural ativado por padrão, com aviso claro, possibilidade de desmarcar e retirada da própria foto pelo navegador que a publicou.

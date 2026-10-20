@@ -76,12 +76,12 @@ const canvas = $("#canvas"),
   ctx = canvas.getContext("2d"),
   API = "/api/campaign";
 const state = {
-  frame: "chapa-2",
+  frame: "duas-chapas",
   photo: null,
   frames: {},
   zoom: 1,
-  x: 500,
-  y: 277,
+  x: 540,
+  y: 540,
   base: 1,
   revision: 0,
   ready: null,
@@ -127,7 +127,7 @@ function setEnabled() {
 }
 function draw() {
   ctx.fillStyle = "#edf1eb";
-  ctx.fillRect(0, 0, 1000, 1000);
+  ctx.fillRect(0, 0, 1080, 1080);
   if (state.photo) {
     const w = state.photo.width * state.base * state.zoom,
       h = state.photo.height * state.base * state.zoom;
@@ -135,21 +135,21 @@ function draw() {
   } else {
     ctx.strokeStyle = "#dce5da";
     ctx.lineWidth = 1;
-    for (let x = 0; x < 1000; x += 50) {
+    for (let x = 0; x < 1080; x += 50) {
       ctx.beginPath();
       ctx.moveTo(x, 0);
-      ctx.lineTo(x, 550);
+      ctx.lineTo(x, 1080);
       ctx.stroke();
     }
-    for (let y = 0; y < 550; y += 50) {
+    for (let y = 0; y < 1080; y += 50) {
       ctx.beginPath();
       ctx.moveTo(0, y);
-      ctx.lineTo(1000, y);
+      ctx.lineTo(1080, y);
       ctx.stroke();
     }
   }
   if (state.frames[state.frame])
-    ctx.drawImage(state.frames[state.frame], 0, 0, 1000, 1000);
+    ctx.drawImage(state.frames[state.frame], 0, 0, 1080, 1080);
 }
 function invalidate() {
   state.revision++;
@@ -176,7 +176,7 @@ function toBlob(c) {
 async function prepare(rev) {
   try {
     const copy = document.createElement("canvas");
-    copy.width = copy.height = 1000;
+    copy.width = copy.height = 1080;
     copy.getContext("2d").drawImage(canvas, 0, 0);
     const thumbnail = document.createElement("canvas");
     thumbnail.width = thumbnail.height = 320;
@@ -200,12 +200,12 @@ async function prepare(rev) {
 }
 function reset() {
   state.zoom = 1;
-  state.x = 500;
-  state.y = 500;
+  state.x = 540;
+  state.y = 540;
   state.base = state.photo
     ? Math.max(
-        1000 / state.photo.width,
-        1000 / state.photo.height,
+        1080 / state.photo.width,
+        1080 / state.photo.height,
       )
     : 1;
   $("#zoom").value = 100;
@@ -213,7 +213,7 @@ function reset() {
   invalidate();
 }
 function choose(frame) {
-  if (!data[frame]) frame = "chapa-2";
+  frame = "duas-chapas";
   state.frame = frame;
   saved.set("coren-frame", frame);
   const d = data[frame];
@@ -249,7 +249,7 @@ function choose(frame) {
       return a;
     }),
   );
-  $("#upload-overlay").style.height = frame === "duas-chapas" ? "51%" : "55.4%";
+  $("#upload-overlay").style.height = "60%";
   invalidate();
 }
 $("#proposal-grid").replaceChildren(
@@ -397,7 +397,7 @@ canvas.addEventListener("pointermove", (e) => {
           gesture.distance,
       );
   } else {
-    const ratio = 1000 / canvas.getBoundingClientRect().width;
+    const ratio = 1080 / canvas.getBoundingClientRect().width;
     state.x += (e.clientX - prev.x) * ratio;
     state.y += (e.clientY - prev.y) * ratio;
     invalidate();
@@ -587,13 +587,13 @@ async function refresh() {
   }
 }
 async function init() {
-  choose(saved.get("coren-frame", "chapa-2"));
+  choose("duas-chapas");
   await Promise.all(
-    Object.keys(data).map(async (frame) => {
+    ["duas-chapas"].map(async (frame) => {
       try {
-        state.frames[frame] = await imageLoad(`assets/${frame}.png`);
+        state.frames[frame] = await imageLoad("assets/moldura-chapas-2-e-1.png");
       } catch {
-        status("Uma moldura não carregou. Atualize a página.", true);
+        status("A moldura não carregou. Atualize a página.", true);
       }
     }),
   );
